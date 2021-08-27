@@ -11,7 +11,7 @@ vector<int> solution(string s) {
     
     int cnt[100000] = {[0 ... 99999] = 0};
     
-    vector<pair<int, int>> pairV;
+    vector<pair<int, int>> pairV;	// pair 사용하여 쌍으로 값 저장. 참고 - https://godog.tistory.com/entry/c-vector-and-pair-%EC%82%AC%EC%9A%A9
     
     for(auto c : s){
         if(c-0 > 47 && c-0 < 58) {
