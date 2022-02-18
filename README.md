@@ -1,6 +1,8 @@
-# osam_algorithm
-osamhack algorithm prac with cpp
+# algorithm
+
+algorithm prac
 
 ```
 g++ -o filename ./main.cpp
+gcc cfile -o filename
 ```
