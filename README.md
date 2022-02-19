@@ -4,5 +4,5 @@ algorithm prac
 
 ```
 g++ -o filename ./main.cpp
-gcc cfile -o filename
+gcc cfile -o filename -lm
 ```
