@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include<stdio.h>
 
 // 2447 별 찍기
 /**
@@ -37,7 +37,6 @@ void starboxMaker(int row, int col, int N) {
 			printf("*");
 		}
 		else {
-			// printf("%d %d\n", row, col);
 			starboxMaker(row, col, N / 3);
 		}
 	}
