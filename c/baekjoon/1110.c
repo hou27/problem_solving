@@ -28,17 +28,17 @@ int main() {
     n1 = num.tens;
     n2 = num.units;
     sum = n1 + n2;
-    for(;;) {
+    for (;;) {
         num = split(sum);
         res = n2 * 10 + num.units;
-        if(n == res) break;
+        if (n == res) break;
         num = split(sum);
         n1 = n2;
         n2 = num.units;
         sum = n1 + n2;
         cnt++;
     }
-    
+
     printf("%d\n", cnt);
 
     return 0;
