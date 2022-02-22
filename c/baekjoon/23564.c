@@ -9,7 +9,7 @@ struct answer {
 	int A[size];
 };
 
-int calcLen(char* arr);
+int calcLen(char* arr); // strlen
 void SandARecursion(int n, char* string, int len);
 
 struct answer ans;
