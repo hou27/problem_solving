@@ -4,6 +4,6 @@
 *.so
 *.com
 *.class
-
+test*
 .vscode
 compiled/
