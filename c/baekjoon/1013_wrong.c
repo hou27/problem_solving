@@ -24,77 +24,77 @@ T
 void chk(char* N, int state, int location);
 
 int main() {
-	int T;
-	char N[205];
-	scanf("%d", &T);
+  int T;
+  char N[205];
+  scanf("%d", &T);
 
-	for (int i = 0; i < T; i++) {
-		scanf("%s", N);
-		chk(N, 0, 0);
-	}
+  for (int i = 0; i < T; i++) {
+    scanf("%s", N);
+    chk(N, 0, 0);
+  }
 
-	return 0;
+  return 0;
 }
 
 void chk(char* N, int state, int location) {
-	if ((state == 4 || state == 6) && N[location] == '\0') {
-		printf("YES\n");
-		return;
-	}
-	else if (N[location] != '\0') {
-		switch (state) {
-		case 0:
-			if (N[location] == '1') {
-				chk(N, 1, location + 1);
-			}
-			else if (N[location] == '0') {
-				chk(N, 5, location + 1);
-			}
-			break;
-		case 1:
-		case 2:
-			if (N[location] == '1') {
-				printf("NO\n");
-			}
-			else if (N[location] == '0') {
-				chk(N, state + 1, location + 1);
-			}
-			break;
-		case 3:
-			if (N[location] == '1') {
-				chk(N, 4, location + 1);
-			}
-			else if (N[location] == '0') {
-				chk(N, 3, location + 1);
-			}
-			break;
-		case 4:
-			if (N[location] == '1') {
-				chk(N, 4, location + 1);
-			}
-			else if (N[location] == '0') {
-				chk(N, 5, location + 1);
-			}
-			break;
-		case 5:
-			if (N[location] == '1') {
-				chk(N, 6, location + 1);
-			}
-			else if (N[location] == '0') {
-				printf("NO\n");
-			}
-			break;
-		case 6:
-			if (N[location] == '1') {
-				chk(N, 1, location + 1);
-			}
-			else if (N[location] == '0') {
-				chk(N, 5, location + 1);
-			}
-			break;
-		default:
-			break;
-		}
-	}
-	else printf("NO\n");
+  if ((state == 4 || state == 6) && N[location] == '\0') {
+    printf("YES\n");
+    return;
+  }
+  else if (N[location] != '\0') {
+    switch (state) {
+    case 0:
+      if (N[location] == '1') {
+        chk(N, 1, location + 1);
+      }
+      else if (N[location] == '0') {
+        chk(N, 5, location + 1);
+      }
+      break;
+    case 1:
+    case 2:
+      if (N[location] == '1') {
+        printf("NO\n");
+      }
+      else if (N[location] == '0') {
+        chk(N, state + 1, location + 1);
+      }
+      break;
+    case 3:
+      if (N[location] == '1') {
+        chk(N, 4, location + 1);
+      }
+      else if (N[location] == '0') {
+        chk(N, 3, location + 1);
+      }
+      break;
+    case 4:
+      if (N[location] == '1') {
+        chk(N, 4, location + 1);
+      }
+      else if (N[location] == '0') {
+        chk(N, 5, location + 1);
+      }
+      break;
+    case 5:
+      if (N[location] == '1') {
+        chk(N, 6, location + 1);
+      }
+      else if (N[location] == '0') {
+        printf("NO\n");
+      }
+      break;
+    case 6:
+      if (N[location] == '1') {
+        chk(N, 1, location + 1);
+      }
+      else if (N[location] == '0') {
+        chk(N, 5, location + 1);
+      }
+      break;
+    default:
+      break;
+    }
+  }
+  else printf("NO\n");
 }
