@@ -33,6 +33,8 @@ int main() {
 		if (i != cnt - 1) printf(" ");
 	}
 
+	free(ans.S);
+
 	return 0;
 }
 
