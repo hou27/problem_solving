@@ -16,5 +16,7 @@ public class Main {
             else
                 System.out.print("개굴");
         }
+
+        sc.close();
     }
 }
