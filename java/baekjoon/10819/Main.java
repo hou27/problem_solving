@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,8 +8,6 @@ public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int[] nArr = new int[sc.nextInt()];
-    List<Integer> sortedlist = new ArrayList<>();
-    List<Integer> organizedlist = new ArrayList<>();
     int max = 0;
 
     for (int i = 0; i < nArr.length; i++) {
@@ -19,37 +16,40 @@ public class Main {
 
     sc.close();
 
-    Arrays.sort(nArr);
+    // dfs로 모든 경우의 수 탐색
+    List<Integer> list = new ArrayList<>();
     for (int i : nArr) {
-      sortedlist.add(i);
+      list.add(i);
     }
 
-    // 최댓값 넣고 시작
-    organizedlist.add(sortedlist.remove(sortedlist.size() - 1));
-
-    // 리스트 정리
-    for (;;) {
-      if (sortedlist.isEmpty()) {
-        break;
-      }
-
-      if (organizedlist.size() % 4 == 1) {
-        organizedlist.add(organizedlist.size(), sortedlist.remove(0));
-      } else if (organizedlist.size() % 4 == 2) {
-        organizedlist.add(0, sortedlist.remove(0));
-      } else if (organizedlist.size() % 4 == 3) {
-        organizedlist.add(organizedlist.size(), sortedlist.remove(sortedlist.size() - 1));
-      } else if (organizedlist.size() % 4 == 0) {
-        organizedlist.add(0, sortedlist.remove(sortedlist.size() - 1));
-      }
-    }
-
-    // 식의 최댓값 계산
-    for (int i = 0; i < organizedlist.size() - 1; i++) {
-      max += Math.abs(organizedlist.get(i) - organizedlist.get(i + 1));
-    }
+    max = dfs(list, 0);
 
     System.out.println(max);
+  }
+
+  private static int dfs(List<Integer> list, int idx) {
+    if (idx == list.size() - 1) { // 마지막 원소까지 탐색했을 때
+      int max = 0;
+      for (int j = 0; j < list.size() - 1; j++) { // 식의 최댓값 계산
+        max += Math.abs(list.get(j) - list.get(j + 1)); // 절대값으로 계산
+      }
+      return max;
+    }
+
+    int max = 0; // 최댓값 다시 초기화
+    for (int j = idx; j < list.size(); j++) { // 모든 경우의 수 탐색
+      // idx번째 원소와 j번째 원소를 바꿈
+      int tmp = list.get(idx);
+      list.set(idx, list.get(j));
+      list.set(j, tmp);
+      max = Math.max(max, dfs(list, idx + 1)); // 최댓값 갱신
+      // 다시 원래대로 돌려놓음
+      tmp = list.get(idx);
+      list.set(idx, list.get(j));
+      list.set(j, tmp);
+    }
+
+    return max;
   }
 
 }
