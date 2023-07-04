@@ -7,3 +7,6 @@
 test*
 .vscode
 compiled/
+
+# mac os
+.DS_Store
