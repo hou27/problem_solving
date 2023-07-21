@@ -6,7 +6,7 @@
 
 ### 3. [그리디](./3_greedy/README.md)
 
-### 4. 자료구조
+### 4. [자료구조](./4_data_structure/README.md)
 
 ### 5. 다이나믹 프로그래밍
 
