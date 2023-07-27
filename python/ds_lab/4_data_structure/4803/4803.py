@@ -1,4 +1,6 @@
-while True:
+import itertools
+
+for case_cnt in itertools.count():
     n, m = map(int, input().split())  # 정점의 개수와 간선의 개수
     cnt = 0  # 트리의 개수
 
@@ -10,8 +12,11 @@ while True:
     # 그래프 입력
     for i in range(m):
         a, b = map(int, input().split())
-        graph[a].append(b)
-        graph[b].append(a)
+        if a == b:  # 노드가 자기 자신을 가리키는 경우
+            graph[a].append(b)
+        else:
+            graph[a].append(b)
+            graph[b].append(a)
 
     visited = [False] * (n + 1)  # 방문 여부
 
@@ -33,10 +38,11 @@ while True:
     for i in range(1, n + 1):
         if not visited[i]:
             is_tree = True
-            dfs(i, i)
+            dfs(i, 0)
             if is_tree:
                 cnt += 1
 
+    print(f"Case {case_cnt + 1}: ", end="")
     if cnt == 1:  # 트리가 1개면
         print("There is one tree.")
     elif cnt > 1:  # 트리가 1개보다 많으면
