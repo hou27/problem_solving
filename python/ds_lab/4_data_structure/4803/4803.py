@@ -1,4 +1,10 @@
 import itertools
+import sys
+
+# 재귀 깊이 설정
+sys.setrecursionlimit(10**6)
+
+input = sys.stdin.readline
 
 for case_cnt in itertools.count():
     n, m = map(int, input().split())  # 정점의 개수와 간선의 개수
