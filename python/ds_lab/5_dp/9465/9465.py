@@ -29,8 +29,10 @@ for _ in range(T):
     # 세 칸 이상 뛰는 건 의미가 없다.
 
     # 가장 좌측에서 시작해서 특정 칸의 스티커를 떼는 시점에서의 점수의 최댓값을 구해가자.
-    for i in range(1, n + 1):
-        dp[0][i] = max(dp[1][i - 1], dp[1][i - 2]) + sticker[0][i]
-        dp[1][i] = max(dp[0][i - 1], dp[0][i - 2]) + sticker[1][i]
+    for i in range(2, n + 1):
+        dp[0][i] = (
+            max(dp[1][i - 1], dp[1][i - 2]) + sticker[0][i - 1]
+        )  # sticker list는 0부터 시작하므로 i - 1
+        dp[1][i] = max(dp[0][i - 1], dp[0][i - 2]) + sticker[1][i - 1]
 
     print(max(dp[0][n], dp[1][n]))
