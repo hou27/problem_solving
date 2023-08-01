@@ -12,6 +12,10 @@ for _ in range(T):
     dp[0][1] = sticker[0][0]
     dp[1][1] = sticker[1][0]
 
+    if n == 1:
+        print(max(dp[0][1], dp[1][1]))
+        continue
+
     # case 1(한 칸 건너뛰기)
     # 10 + 40 + 10 + 50 + 100 + 20 + 40 = 270
     # case 2(한 칸 건너뛰기)
