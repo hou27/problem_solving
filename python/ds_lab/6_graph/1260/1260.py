@@ -27,6 +27,7 @@ def bfs(graph, v):
     while queue:
         v = queue.pop(0)
         print(v, end=' ')
+        graph[v].sort()
         for i in graph[v]:
             if not visited[i]:
                 queue.append(i)
@@ -40,9 +41,6 @@ for _ in range(M):
     v1, v2 = map(int, input().split())
     graph[v1].append(v2)
     graph[v2].append(v1)
-
-for i in range(1, N + 1):
-    graph[i].sort()
 
 dfs(graph, V)
 print()
