@@ -11,3 +11,5 @@
 ### 5. [다이나믹 프로그래밍](./5_dp/README.md)
 
 ### 6. [그래프](./6_graph/README.md)
+
+### 7. [정렬](./7_sort/README.md)
