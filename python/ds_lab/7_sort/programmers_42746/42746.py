@@ -18,6 +18,9 @@ def solution(numbers):
         for j in range(order[i].__len__()):
             answer += str(order[i][j])
 
+    if answer[0] == "0":
+        answer = "0"
+
     return answer
 
 
