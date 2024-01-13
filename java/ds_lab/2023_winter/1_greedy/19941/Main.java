@@ -5,18 +5,17 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt(); // 사람 수
         int K = sc.nextInt(); // 햄버거 수
-        String info = sc.next();
+        StringBuilder info = new StringBuilder(sc.next());
         
         int cnt = 0;
 
         for (int i = 0; i < N; i++) {
             if (info.charAt(i) == 'P') {
-                for (int j = i - K; j <= i + K; j++) {
-                    if (j < 0 || j >= N) continue;
+                for (int j = Math.max(0, i - K); j <= Math.min(N - 1, i + K); j++) { // 코드 개선
                     if (info.charAt(j) == 'H') {
                         cnt++;
                         // 햄버거를 먹음 표시
-                        info = info.substring(0, j) + 'X' + info.substring(j + 1);
+                        info.setCharAt(j, 'X'); // StringBuilder 활용
                         break;
                     }
                 }
@@ -26,5 +25,4 @@ public class Main {
         System.out.println(cnt);
         sc.close();
     }
-    
 }
