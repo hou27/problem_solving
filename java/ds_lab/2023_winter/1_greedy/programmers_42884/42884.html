@@ -1,0 +1,1208 @@
+<html
+  lang="ko"
+  xml:lang="ko"
+  xmlns="http://www.w3.org/1999/xhtml"
+  class=""
+  translate=""
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="twitter:title"
+      property="og:title"
+      itemprop="title name"
+      content="코딩테스트 연습 - 단속카메라"
+    />
+    <meta
+      name="og:title"
+      property="og:title"
+      itemprop="title name"
+      content="코딩테스트 연습 - 단속카메라"
+    />
+    <meta
+      name="twitter:image"
+      property="og:image"
+      itemprop="image primaryImageOfPage"
+      content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg"
+    />
+    <meta
+      name="og:image"
+      property="og:image"
+      itemprop="image primaryImageOfPage"
+      content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg"
+    />
+    <meta
+      name="twitter:url"
+      property="og:url"
+      content="https://programmers.co.kr/"
+    />
+    <meta
+      name="og:url"
+      property="og:url"
+      content="https://programmers.co.kr/"
+    />
+    <meta charset="utf-8" />
+    <title>코딩테스트 연습 - 단속카메라 | 프로그래머스 스쿨</title>
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://school.programmers.co.kr/assets/icons/favicon-ec61d910396b5fc4d7418ea44281693172c34e31d437d074f9ab5470523990fb.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="https://school.programmers.co.kr/assets/icons/apple-icon-8a32ac937e12475676c7102e99d34b7f908b3d1ac048d6eed0712ad111bfdd01.png"
+    />
+    <meta
+      name="keywords"
+      content="코딩 교육, 코딩, 프로그래밍, 실습, 생활코딩, 알고리즘, java, 영상/실습 강의, 추천 강의"
+    />
+    <meta property="fb:app_id" content="339079816467879" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="프로그래머스 스쿨" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="image"
+      content="https://image.freepik.com/free-vector/landing-page-template-for-a-website_23-2147782747.jpg"
+    />
+    <meta name="csrf-param" content="authenticity_token" />
+    <meta
+      name="csrf-token"
+      content="sUVlc4usPvVwweWoFmnXH2yY3kYWo8hI9T17b4p3UTlOmOZqQxn8tYvzeYkVwp1KzjD2FdinAm9h89wmjDwMMQ"
+    />
+    <meta
+      name="action-cable-url"
+      content="wss://ws.programmers.co.kr:443/cable"
+    />
+    <script async="" src="https://www.clarity.ms/s/0.7.20/clarity.js"></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-WQTT4K9PGP&amp;cx=c&amp;_slc=1"
+    ></script>
+    <script
+      async=""
+      src="https://www.clarity.ms/tag/bnbmh1qdqm?ref=gtm2"
+    ></script>
+    <script
+      src="https://connect.facebook.net/signals/config/2050250308523590?v=2.9.140&amp;r=stable&amp;domain=school.programmers.co.kr"
+      async=""
+    ></script>
+    <script
+      async=""
+      src="https://connect.facebook.net/en_US/fbevents.js"
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.clarity.ms/tag/bnbjbxy3m1?ref=gtm"
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script>
+    <script
+      type="text/javascript"
+      async=""
+      src="https://www.googletagmanager.com/gtag/js?id=G-XQDBZXSH2X&amp;l=dataLayer&amp;cx=c"
+    ></script>
+    <script
+      async=""
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-NT8HLJD"
+    ></script>
+    <script type="text/javascript" charset="utf-8">
+      window.__env__ = {
+        STAGE: "production",
+        SITE: "programmers",
+        SENTRY_DSN:
+          "https://96f9fc1ff3f44acbb98a9c156338d14b@o1070092.ingest.sentry.io/6136918",
+        HACKLE_BROWSER_KEY: "OKQUz9iLXiTPyzwOAyq44sT4uwMqfCzz",
+        HACKLE_EVENT_SERVER_INIT: true, // 핵클 초기화 코드 이전을 위한 임시 플래그 배포 후 삭제 예정
+        MINERVA_URL: "minerva.programmers.co.kr",
+        HERA_CLIENT_HOST: "https://d1nuzc1w51n1es.cloudfront.net",
+        PROGRAMMERS_HOST: "programmers.co.kr",
+        BUSINESS_HOST: "business.programmers.co.kr",
+        SCHOOL_HOST: "school.programmers.co.kr",
+        INSTRUCTOR_SCHOOL_HOST: "instructor.school.programmers.co.kr",
+        CAREER_HOST: "career.programmers.co.kr",
+        CAMPUS_HOST: "campus.programmers.co.kr",
+        GAIA_HOST: "gaia.programmers.co.kr",
+        PROGRAMMERS_WS_HOST: "ws.programmers.co.kr",
+        COMMUNITY_HOST: "community.programmers.co.kr",
+        QNA_HOST: "qna.programmers.co.kr",
+        IS_PROGRAMMERS_APP_REQUEST: false,
+      };
+    </script>
+    <script
+      id="__hackle-init-info"
+      data-user-email="ataj125@gmail.com"
+    ></script>
+    <script src="/packs/js/runtime~hackle-event-initializer-31fde17c7c9ed3b3ebf8.js"></script>
+    <script src="/packs/js/vendors~AppBusinessCareer~AppCareer~hackle-event-initializer~school/App-3de51841e78f460c9fe7.chunk.js"></script>
+    <script src="/packs/js/hackle-event-initializer-c407887ed17c01b745c6.chunk.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="/assets/library-0e2d94e6345f59c3ed617a37b107e4c2329f28e8147817280db477328e9ae907.css"
+      media="all"
+      debug="false"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/application-8e7e448b2cc5085d7c055b397f313156f0750d5b6a7b4e67e20e864b2a6f157e.css"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="/assets/school-6c8b906769226f288600ebe9b81baec3e69890d27ca8d357c9714a890f27d97c.css"
+      media="all"
+    />
+
+    <meta
+      name="google-site-verification"
+      content="Z9qZz155KQLu77llc1wF4LlccJE88dymkeGyw1I62JY"
+    />
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        user_id: "352579",
+      });
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NT8HLJD");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://d1nuzc1w51n1es.cloudfront.net/ae42712dc7467926fa48.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://d1nuzc1w51n1es.cloudfront.net/e08644d1afd58f761901.css"
+    />
+    <script
+      type="module"
+      src="chrome-extension://jdkknkkbebbapilgoeccciglkfbmbnfm/hook.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://d1nuzc1w51n1es.cloudfront.net/a86f507112897be40e3e.css"
+    />
+  </head>
+  <body
+    class="learn-lessons learn-lessons-show"
+    data-ns="Learn"
+    data-controller="lessons"
+    data-action="show"
+    data-defaultlocale="ko"
+    data-locale="ko"
+    data-signed-in="true"
+  >
+    <div
+      class="navbar navbar-dark navbar-expand-lg navbar-application navbar-breadcrumb"
+    >
+      <a class="navbar-brand" href="/">
+        <img
+          alt="logo"
+          width="24"
+          src="/assets/bi-symbol-light-4a9edc980025418d6883d7519df4acf2b6c65f068508931dff0881d1c5ad4721.png"
+        />
+      </a>
+      <ol class="breadcrumb">
+        <li><a href="/learn/challenges">코딩테스트 연습</a></li>
+        <li><a href="/learn/courses/30/parts/12244">탐욕법(Greedy)</a></li>
+        <li class="active">단속카메라</li>
+      </ol>
+
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a
+              onclick="Learn.lessons.challengeable.startTour(true)"
+              class="nav-link"
+              id="help"
+              href="#"
+              >도움말</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-remote="true" href="/compile_options"
+              >컴파일 옵션</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="main theme-dark">
+      <script
+        src="https://d1nuzc1w51n1es.cloudfront.net/a5ef230ecfaf611a0238.js"
+        defer="defer"
+      ></script>
+
+      <div
+        class="lesson-content"
+        data-course-slug="코딩테스트-연습"
+        data-course-id="30"
+        data-lesson-id="42884"
+        data-lesson-type="Challenge"
+        data-lesson-title="단속카메라"
+        data-challenge-level="3"
+        data-challenge-category="algorithm"
+        data-course-category="open_challenge"
+        data-next-lesson-id=""
+      >
+        <ul
+          class="challenge-nav nav nav-tabs nav-tabs-dark task-tab"
+          id="tab"
+          role="tablist"
+        >
+          <li
+            class="nav-item algorithm-nav-link algorithm-title algorithm-bookmarks"
+            data-bookmarked="false"
+          >
+            <div
+              id="challenge-bookmark-delete"
+              class="icon-bookmark challenge-bookmark hidden disabled"
+              data-user-signed-in="true"
+              data-lesson-id="42884"
+              data-bookmarked="true"
+              data-toggle="tooltip"
+              data-placement="top"
+              data-original-title="즐겨찾기 해제"
+              data-hackle-value='{"key":"open_challenge_lesson_bookmark_clicked","properties":{"course_id":30,"lesson_id":42884,"bookmarked":false}}'
+            >
+              <svg class="ic-bookmark ic-24">
+                <use
+                  xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-bookmark"
+                ></use>
+              </svg>
+              <div class="hover-bg"></div>
+            </div>
+            <div
+              id="challenge-bookmark"
+              class="icon-bookmark challenge-bookmark"
+              data-user-signed-in="true"
+              data-lesson-id="42884"
+              data-bookmarked="false"
+              data-toggle="tooltip"
+              data-placement="top"
+              data-original-title="즐겨찾기 추가"
+              data-hackle-value='{"key":"open_challenge_lesson_bookmark_clicked","properties":{"course_id":30,"lesson_id":42884,"bookmarked":true}}'
+            >
+              <svg class="ic-bookmark-border ic-24 icon-bookmark">
+                <use
+                  xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-bookmark-border"
+                ></use>
+              </svg>
+              <div class="hover-bg"></div>
+            </div>
+            <div class="challenge-title">단속카메라</div>
+          </li>
+
+          <div class="challenge-settings nav-item">
+            <div
+              class="btn-group-theme btn-group btn-group-toggle"
+              data-toggle="buttons"
+            >
+              <label class="btn btn-sm btn-outline-dark active">
+                <input
+                  type="radio"
+                  name="themes"
+                  autocomplete="off"
+                  checked=""
+                  data-toggle="button"
+                  data-theme="dark"
+                />dark
+              </label>
+              <label class="btn btn-sm btn-outline-dark">
+                <input
+                  type="radio"
+                  name="themes"
+                  autocomplete="off"
+                  data-toggle="button"
+                  data-theme="light"
+                />light
+              </label>
+            </div>
+
+            <div
+              data-toggle="popover"
+              data-trigger="hover"
+              data-placement="bottom"
+              data-content="코드 에디터의 단축키를 설정하는 옵션입니다. 선호하는 에디터 옵션이 없다면 sublime을 선택해주세요."
+              data-original-title=""
+              title=""
+            >
+              <div
+                class="btn-group-keymap btn-group btn-group-toggle"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-sm btn-outline-dark active">
+                  <input
+                    type="radio"
+                    name="keymaps"
+                    autocomplete="off"
+                    checked=""
+                    data-keymap="sublime"
+                  />sublime
+                </label>
+                <label class="btn btn-sm btn-outline-dark">
+                  <input
+                    type="radio"
+                    name="keymaps"
+                    autocomplete="off"
+                    data-keymap="vim"
+                  />vim
+                </label>
+                <label class="btn btn-sm btn-outline-dark">
+                  <input
+                    type="radio"
+                    name="keymaps"
+                    autocomplete="off"
+                    data-keymap="emacs"
+                  />emacs
+                </label>
+              </div>
+            </div>
+
+            <div class="dropdown-language" id="tour7">
+              <button
+                class="btn btn-sm btn-dark dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+              >
+                Java
+              </button>
+              <div
+                class="dropdown-menu dropdown-menu-right"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a
+                  class="dropdown-item"
+                  href="/learn/courses/30/lessons/42884?language=cpp"
+                  >C++</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="/learn/courses/30/lessons/42884?language=java"
+                  >Java</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="/learn/courses/30/lessons/42884?language=javascript"
+                  >JavaScript</a
+                >
+                <a
+                  class="dropdown-item"
+                  href="/learn/courses/30/lessons/42884?language=python3"
+                  >Python3</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="connection-box connection-status js-connection-status-alert connected"
+            >
+              <svg class="ic-18">
+                <use
+                  xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-power-off"
+                ></use>
+              </svg>
+              <span class="connection-status-txt">네트워크 연결 끊김</span>
+            </div>
+          </div>
+        </ul>
+
+        <div
+          class="challenge-content lesson-algorithm-main-section"
+          data-challengeable-id="2511"
+          data-challengeable-type="algorithm"
+          data-algorithm-type="standard"
+          data-language="java"
+          data-user-id="352579"
+          data-interface-type="function"
+          data-lesson-comment-activation-score="30"
+          data-is-lesson="true"
+        >
+          <div></div>
+
+          <div class="main-section">
+            <div
+              class="guide-section"
+              id="tour2"
+              style="width: calc(40% - 12px)"
+            >
+              <div class="guide-section-description">
+                <h6 class="guide-section-title">문제 설명</h6>
+                <div class="markdown solarized-dark">
+                  <p>
+                    고속도로를 이동하는 모든 차량이 고속도로를 이용하면서 단속용
+                    카메라를 한 번은 만나도록 카메라를 설치하려고 합니다.
+                  </p>
+
+                  <p>
+                    고속도로를 이동하는 차량의 경로 routes가 매개변수로 주어질
+                    때, 모든 차량이 한 번은 단속용 카메라를 만나도록 하려면 최소
+                    몇 대의 카메라를 설치해야 하는지를 return 하도록 solution
+                    함수를 완성하세요.
+                  </p>
+
+                  <p><strong>제한사항</strong></p>
+
+                  <ul>
+                    <li>차량의 대수는 1대 이상 10,000대 이하입니다.</li>
+                    <li>
+                      routes에는 차량의 이동 경로가 포함되어 있으며
+                      routes[i][0]에는 i번째 차량이 고속도로에 진입한 지점,
+                      routes[i][1]에는 i번째 차량이 고속도로에서 나간 지점이
+                      적혀 있습니다.
+                    </li>
+                    <li>
+                      차량의 진입/진출 지점에 카메라가 설치되어 있어도 카메라를
+                      만난것으로 간주합니다.
+                    </li>
+                    <li>
+                      차량의 진입 지점, 진출 지점은 -30,000 이상 30,000
+                      이하입니다.
+                    </li>
+                  </ul>
+
+                  <p><strong>입출력 예</strong></p>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>routes</th>
+                        <th>return</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>[[-20,-15], [-14,-5], [-18,-13], [-5,-3]]</td>
+                        <td>2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <p><strong>입출력 예 설명</strong></p>
+
+                  <p>
+                    -5 지점에 카메라를 설치하면 두 번째, 네 번째 차량이 카메라를
+                    만납니다.
+                  </p>
+
+                  <p>
+                    -15 지점에 카메라를 설치하면 첫 번째, 세 번째 차량이
+                    카메라를 만납니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="gutter gutter-horizontal" style="width: 24px"></div>
+            <div class="run-section" style="width: calc(60% - 12px)">
+              <div
+                id="tour3"
+                class="code-section"
+                onkeyup="Hera.tryoutChallenges.resizeEditor(this);"
+                style="height: calc(60% - 7px)"
+              >
+                <div class="editor">
+                  <ul class="nav nav-pills editor-nav-pills tap-form">
+                    <input
+                      type="hidden"
+                      name="initial_code_8040"
+                      id="initial_code_8040"
+                      value="class Solution {
+        public int solution(int[][] routes) {
+            int answer = 0;
+            return answer;
+        }
+    }"
+                      autocomplete="off"
+                    />
+                    <input
+                      id="8040"
+                      data-type="code"
+                      data-language="java"
+                      type="hidden"
+                      value="class Solution {
+        public int solution(int[][] routes) {
+            int answer = 0;
+            return answer;
+        }
+    }"
+                    />
+                    <li class="nav-item">
+                      <a
+                        href="#"
+                        class="btn-tab nav-link active"
+                        data-id="8040"
+                        data-language="java"
+                      >
+                        Solution.java
+                      </a>
+                    </li>
+                  </ul>
+
+                  <textarea
+                    hidden=""
+                    id="code"
+                    name="code"
+                    style="display: none"
+                  >
+class Solution {
+        public int solution(int[][] routes) {
+            int answer = 0;
+            return answer;
+        }
+    }</textarea
+                  >
+                  <div
+                    class="CodeMirror cm-s-tomorrow-night-bright CodeMirror-wrap"
+                    translate="no"
+                  >
+                    <div
+                      style="
+                        overflow: hidden;
+                        position: relative;
+                        width: 3px;
+                        height: 0px;
+                        top: 20px;
+                        left: 58px;
+                      "
+                    >
+                      <textarea
+                        autocorrect="off"
+                        autocapitalize="off"
+                        spellcheck="false"
+                        tabindex="0"
+                        style="
+                          position: absolute;
+                          bottom: -1em;
+                          padding: 0px;
+                          width: 1000px;
+                          height: 1em;
+                          min-height: 1em;
+                          outline: none;
+                        "
+                      ></textarea>
+                    </div>
+                    <div
+                      class="CodeMirror-vscrollbar"
+                      tabindex="-1"
+                      cm-not-content="true"
+                    >
+                      <div style="min-width: 1px; height: 0px"></div>
+                    </div>
+                    <div
+                      class="CodeMirror-hscrollbar"
+                      tabindex="-1"
+                      cm-not-content="true"
+                    >
+                      <div
+                        style="height: 100%; min-height: 1px; width: 0px"
+                      ></div>
+                    </div>
+                    <div
+                      class="CodeMirror-scrollbar-filler"
+                      cm-not-content="true"
+                    ></div>
+                    <div
+                      class="CodeMirror-gutter-filler"
+                      cm-not-content="true"
+                    ></div>
+                    <div class="CodeMirror-scroll" tabindex="-1">
+                      <div
+                        class="CodeMirror-sizer"
+                        style="
+                          margin-left: 48px;
+                          margin-bottom: -8px;
+                          border-right-width: 42px;
+                          min-height: 142px;
+                          padding-right: 0px;
+                          padding-bottom: 0px;
+                        "
+                      >
+                        <div style="position: relative; top: 0px">
+                          <div class="CodeMirror-lines" role="presentation">
+                            <div
+                              role="presentation"
+                              style="position: relative; outline: none"
+                            >
+                              <div class="CodeMirror-measure">
+                                <div
+                                  class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                >
+                                  <div>6</div>
+                                </div>
+                              </div>
+                              <div class="CodeMirror-measure"></div>
+                              <div style="position: relative; z-index: 1"></div>
+                              <div class="CodeMirror-cursors">
+                                <div
+                                  class="CodeMirror-cursor"
+                                  style="
+                                    left: 10px;
+                                    top: 0px;
+                                    height: 22.3984px;
+                                  "
+                                >
+                                  &nbsp;
+                                </div>
+                              </div>
+                              <div
+                                class="CodeMirror-code"
+                                role="presentation"
+                                style=""
+                              >
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      1
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Solution</span> {</span></pre>
+                                </div>
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      2
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-type">int</span> <span class="cm-variable">solution</span>(<span class="cm-type">int</span>[][] <span class="cm-variable">routes</span>) {</span></pre>
+                                </div>
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      3
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-type">int</span> <span class="cm-variable">answer</span> <span class="cm-operator">=</span> <span class="cm-number">0</span>;</span></pre>
+                                </div>
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      4
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">answer</span>;</span></pre>
+                                </div>
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      5
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre>
+                                </div>
+                                <div style="position: relative">
+                                  <div
+                                    class="CodeMirror-gutter-wrapper"
+                                    aria-hidden="true"
+                                    style="left: -48px"
+                                  >
+                                    <div
+                                      class="CodeMirror-linenumber CodeMirror-gutter-elt"
+                                      style="left: 0px; width: 21px"
+                                    >
+                                      6
+                                    </div>
+                                  </div>
+                                  <pre
+                                    class="CodeMirror-line"
+                                    role="presentation"
+                                  ><span role="presentation" style="padding-right: 0.1px;">}</span></pre>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        style="
+                          position: absolute;
+                          height: 42px;
+                          width: 1px;
+                          border-bottom: 0px solid transparent;
+                          top: 142px;
+                        "
+                      ></div>
+                      <div
+                        class="CodeMirror-gutters"
+                        style="height: 184px; left: 0px"
+                      >
+                        <div
+                          class="CodeMirror-gutter CodeMirror-linenumbers"
+                          style="width: 48px"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gutter gutter-vertical" style="height: 14px"></div>
+              <div
+                class="output-section"
+                id="tour6"
+                style="height: calc(40% - 7px)"
+              >
+                <div class="tab-header">
+                  <div
+                    id="output-title"
+                    class="output-title output-only"
+                    data-toggle="tab"
+                  >
+                    <span
+                      class="connection-status connected"
+                      data-container="body"
+                      data-toggle="popover"
+                      data-placement="top"
+                      title=""
+                      data-html="true"
+                      data-content="
+                        <h6>네트워크가 불안정하여 서버와의 연결이 끊어졌습니다.
+                        페이지 새로고침을 하거나 네트워크가 안정적이 되면 자동으로 재 연결됩니다.</h6>
+                        <h6 style='margin-top: 4px;'>네트워크가 정상임에도 계속해서 연결이 끊어진 상태가 지속된다면 네트워크 방화벽 문제일 수 있습니다.
+                        모바일 테더링 등 다른 네트워크를 통해 테스트에 접속해 보세요.</h6>"
+                      data-original-title="서버와의 연결 끊김"
+                    >
+                      <svg class="ic-24">
+                        <use
+                          xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-power-off"
+                        ></use>
+                      </svg>
+                    </span>
+
+                    실행 결과
+                    <a id="stop-button" class="btn btn-sm btn-danger" href="#"
+                      >실행 중지</a
+                    >
+                    <span id="output-spinner" class="spinner hidden">
+                      <span class="bounce1"></span>
+                      <span class="bounce2"></span>
+                      <span class="bounce3"></span>
+                    </span>
+                  </div>
+                </div>
+
+                <div class="console tab-content">
+                  <div
+                    id="output"
+                    class="console-output tab-pane fade in active show banner"
+                  >
+                    <div id="output-wrapper">
+                      실행 결과가 여기에 표시됩니다.
+                      <pre class="console-content"><div></div></pre>
+                    </div>
+
+                    <div
+                      class="challengeable-banner-wrapper result-banner hidden"
+                      style="
+                        position: relative;
+                        width: 100%;
+                        margin-bottom: 21px;
+                      "
+                    >
+                      <a
+                        href="https://school.programmers.co.kr/learn/courses/20748"
+                        target="_blank"
+                        style="
+                          width: 100%;
+                          display: flex;
+                          justify-content: center;
+                        "
+                        data-hackle-value='{"key":"school_challenge_coderun_banner_clicked","properties":{"course_id":30,"lesson_id":42884,"banner_id":6957,"challenge_title":"단속카메라","challenge_level":3,"challenge_category":"algorithm"}}'
+                      >
+                        <img
+                          src="https://grepp-programmers.s3.amazonaws.com/production/file_resource/5678/KDT-Data_Analysis-codingtest_banner_tablet__1456x180_.png"
+                          alt="프로그래머스 K-Digital Training"
+                          style="width: 100%; max-width: 728px"
+                        />
+                      </a>
+                    </div>
+                  </div>
+
+                  <div
+                    id="ai"
+                    class="ai-output tab-pane fade in show"
+                    role="tabpanel"
+                    aria-labelledby="output-tab"
+                  >
+                    <div class="intro">
+                      <div class="title">
+                        내가 제출한 코드가 왜 틀렸는지 프로그래머스 AI에게
+                        물어보세요.
+                      </div>
+                      <div class="note">
+                        <svg class="ic-14">
+                          <use
+                            xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-info"
+                          ></use>
+                        </svg>
+                        제출 후 채점하기를 눌러 30점 이상인 경우 물어볼 수
+                        있어요.<br />
+                        베타 기간 동안에는 한 문제당 1번만 물어볼 수 있어요.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-section">
+            <div class="testcase-button">
+              <a
+                id="btn-show-question"
+                class="btn btn-dark"
+                href="/learn/courses/30/lessons/42884/questions"
+                >질문하기 (44)</a
+              >
+              <a
+                class="btn btn-dark btn-block"
+                data-remote="true"
+                href="/challenge_algorithms/2511/custom_testcases?lesson_id=42884"
+              >
+                테스트 케이스 추가하기
+              </a>
+            </div>
+
+            <div class="func-buttons">
+              <a
+                id="view-solution-group"
+                class="btn btn-dark btn-svg"
+                data-remote="true"
+                href="/learn/courses/30/lessons/42884/solution_groups?language=java"
+              >
+                <svg class="ic-24 ic-white">
+                  <use
+                    xlink:href="/assets/svg-defs-bfd029363f2c8bdfe15e5ec48b70c852adde08037cfa9a9ab8024207254aaa7d.svg#ic-lock-full"
+                  ></use>
+                </svg>
+                <span>다른 사람의 풀이</span>
+              </a>
+              <a
+                id="reset-code"
+                class="btn btn-dark"
+                data-trigger="hover"
+                data-toggle="popover"
+                data-placement="top"
+                data-content="에디터의 코드가 초기화됩니다. 초기화 버튼을 누르기 이전 코드 복원하려면 코드 에디터에 커서를 두고 Ctrl-Z를 눌러 보세요."
+                href="#"
+                data-original-title=""
+                title=""
+                >초기화</a
+              >
+              <div
+                id="tour4"
+                data-hackle-value='{"key":"school_challenge_coderun_clicked","properties":{"course_id":30,"lesson_id":42884,"challenge_title":"단속카메라","challenge_level":3,"challenge_category":"algorithm"}}'
+              >
+                <button
+                  name="button"
+                  type="submit"
+                  id="run-code"
+                  class="btn btn-dark"
+                  data-trigger="hover"
+                  data-toggle="popover"
+                  data-placement="top"
+                  data-content="작성한 코드를 제출하기 전에 먼저 실행해볼 수 있습니다. 예시 테스트 케이스를 사용하며, [테스트 케이스 추가하기]를 눌러 원하는 테스트 케이스를 추가할 수 있습니다."
+                  data-original-title=""
+                  title=""
+                >
+                  코드 실행
+                </button>
+              </div>
+
+              <div id="tour5">
+                <button
+                  name="button"
+                  type="submit"
+                  id="submit-code"
+                  class="btn btn-primary"
+                  data-trigger="hover"
+                  data-toggle="popover"
+                  data-placement="top"
+                  data-content="시험 종료 전까지 언제든 다시 제출할 수 있으며, 제출한 코드 중 가장 높은 점수를 낸 코드가 최종 답안이 됩니다."
+                  data-original-title=""
+                  title=""
+                >
+                  제출 후 채점하기
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modal-dialog"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    ></div>
+
+    <script
+      src="/assets/library-54ba30d7889024aa7b353a56ac1061019da485e0dde77ff9c9c93e25411088b0.js"
+      debug="false"
+    ></script>
+    <div class="tui-tooltip" style="display: none">
+      <div class="arrow"></div>
+      <span class="text"></span>
+    </div>
+    <div class="tui-tooltip" style="display: none">
+      <div class="arrow"></div>
+      <span class="text"></span>
+    </div>
+    <script>
+      //<![CDATA[
+      I18n.defaultLocale = "ko";
+      I18n.locale = "ko";
+      I18n.fallbacks = true;
+
+      //]]>
+    </script>
+    <script src="/assets/application-a5643b6dce0232a461a49d803b83d3804769db25af886183eb7da060f1139042.js"></script>
+
+    <script>
+      //<![CDATA[
+      window.addEventListener("load", function () {});
+      //]]>
+    </script>
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript">
+      cloudinary.setCloudName('eightcruz');
+    </script>
+
+    <script
+      src="https://www.gstatic.com/charts/loader.js"
+      type="text/javascript"
+    ></script>
+
+    <script
+      src="https://browser.sentry-cdn.com/7.45.0/bundle.tracing.min.js"
+      integrity="sha384-3eSp2mmX0+DiH727hyDCiJsV+21D7/8YtcsQuhzpNTUTKJsYa16mVS5qfrdYjkoe"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://browser.sentry-cdn.com/7.45.0/replay.min.js"
+      integrity="sha384-OyijgDSvsvb+KX1VDi8ziL9uCN0xLSrE6qM/7sJ+Bq+e1ujXDIaWQbW+U46SKfMD"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      Sentry.init({
+        environment: "production",
+        dsn: "https://96f9fc1ff3f44acbb98a9c156338d14b@o1070092.ingest.sentry.io/6136918",
+        replaysSessionSampleRate: 0.01,
+        replaysOnErrorSampleRate: 1.0,
+        integrations: [
+          new Sentry.Integrations.BrowserTracing(),
+          new Sentry.Integrations.Replay(),
+        ],
+        initialScope: {
+          code_version: "c6873fadf686726f9acdfae27e461e8951249ad7",
+          user: {
+            id: 352579,
+            username: "김*호",
+            email: "at*****@gmail.com",
+          },
+        },
+        // Set tracesSampleRate to 1.0 to capture 100%
+        // of transactions for performance monitoring.
+        // We recommend adjusting this value in production
+        tracesSampleRate: 0.01,
+        beforeSend: function beforeSend(event) {
+          const firstException = ((event.exception && event.exception.values) ||
+            [])[0];
+
+          if (firstException) {
+            const mechanism = firstException.mechanism;
+            const stacktrace = firstException.stacktrace;
+            const value = firstException.value;
+
+            const isOnError = () => mechanism && mechanism.type === "onerror";
+            const hasAnonymousFilename = () =>
+              Boolean(
+                stacktrace &&
+                  stacktrace.frames &&
+                  stacktrace.frames.some(
+                    ({ filename }) => filename && filename.includes("anonymous")
+                  )
+              );
+
+            const isIgnorableAgoraError =
+              value?.includes("can not generate join message, no join info") ||
+              value?.includes("WS_ABORT");
+
+            /* console의 예외는 sentry에 보내지 않는다. #4226 */
+            if (isOnError() && hasAnonymousFilename()) return null;
+
+            if (isIgnorableAgoraError) return null;
+          }
+
+          return event;
+        },
+      });
+    </script>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NT8HLJD"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <script type="text/javascript" charset="utf-8">
+      window.addEventListener("afterprint", function () {
+        $.ajax({
+          type: "POST",
+          url: "/api/action_trackings/print_screen",
+          data: {
+            current_path: window.location.href,
+          },
+        });
+      });
+    </script>
+
+    <noscript>
+      이 사이트의 기능을 모두 활용하기 위해서는 자바스크립트를 활성화할 필요가
+      있습니다.
+      <a href="http://www.enable-javascript.com/ko/" target="_blank">
+        브라우저에서 자바스크립트를 활성화하는 방법</a
+      >을 참고하세요.
+    </noscript>
+
+    <div id="snackbar-container"></div>
+    <script type="text/javascript" id="">
+      !(function (b, e, f, g, a, c, d) {
+        b.fbq ||
+          ((a = b.fbq =
+            function () {
+              a.callMethod
+                ? a.callMethod.apply(a, arguments)
+                : a.queue.push(arguments);
+            }),
+          b._fbq || (b._fbq = a),
+          (a.push = a),
+          (a.loaded = !0),
+          (a.version = "2.0"),
+          (a.queue = []),
+          (c = e.createElement(f)),
+          (c.async = !0),
+          (c.src = g),
+          (d = e.getElementsByTagName(f)[0]),
+          d.parentNode.insertBefore(c, d));
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("set", "autoConfig", !1, "2050250308523590");
+      fbq("init", "2050250308523590");
+      fbq("track", "PageView");
+    </script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=2050250308523590&amp;ev=PageView&amp;noscript=1"
+      />
+    </noscript>
+    <script type="text/javascript" id="">
+      (function (a, e, b, f, g, c, d) {
+        a[b] =
+          a[b] ||
+          function () {
+            (a[b].q = a[b].q || []).push(arguments);
+          };
+        c = e.createElement(f);
+        c.async = 1;
+        c.src = "https://www.clarity.ms/tag/" + g + "?ref\x3dgtm2";
+        d = e.getElementsByTagName(f)[0];
+        d.parentNode.insertBefore(c, d);
+      })(window, document, "clarity", "script", "bnbmh1qdqm");
+    </script>
+  </body>
+</html>
