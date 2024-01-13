@@ -17,46 +17,22 @@ class Solution {
         System.out.println(s.solution(routes6));
     }
     public int solution(int[][] routes) {
-        int answer = 0;
+        int answer = 1;
 
         Arrays.sort(routes, (a, b) -> Integer.compare(a[0], b[0]));
         // System.out.println("After sorting");
-        System.out.println(Arrays.deepToString(routes));
+        // System.out.println(Arrays.deepToString(routes));
         
         int currentSpot = routes[0][1];
-        int prevSpot = -99999;
         for (int i = 1; i < routes.length; i++) {
-            System.out.println(routes[i][0] + ", " + routes[i][1]);
-            if (currentSpot < routes[i][0]) {
-                if (prevSpot != currentSpot) {
-                    answer++;
-                    prevSpot = currentSpot;
-                    System.out.println("1. currentSpot: " + currentSpot);
-
-                }
-                currentSpot = routes[i][1];
+            // System.out.println(routes[i][0] + ", " + routes[i][1]);
+            if (currentSpot >= routes[i][0]) {
+                currentSpot = currentSpot < routes[i][1] ? currentSpot : routes[i][1];
             }
-            else if(currentSpot <= routes[i][1]) {
-                if (prevSpot == currentSpot) {
-                    continue;
-                }
+            else {
                 answer++;
-                prevSpot = currentSpot;
-                System.out.println("2. currentSpot: " + currentSpot);
                 currentSpot = routes[i][1];
-
             }
-            else if(currentSpot > routes[i][1]) {
-                currentSpot = routes[i][1];
-                answer++;
-                System.out.println("3. currentSpot: " + currentSpot);
-                if (i != routes.length - 1)
-                    currentSpot = routes[i+1][0];
-                else
-                    break;
-            }
-            else
-                continue;
         }
 
         return answer;
