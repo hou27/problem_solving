@@ -2,7 +2,7 @@
 
 ### 1. [그리디](./1_greedy/README.md)
 
-### 2. [DFS](#)
+### 2. [DFS](./2_dfs/README.md)
 
 ### 3. [BFS](#)
 
