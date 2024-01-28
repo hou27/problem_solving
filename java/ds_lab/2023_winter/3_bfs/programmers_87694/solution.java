@@ -30,13 +30,28 @@ class Solution {
             int y2 = rectangle[i][3] * 2;
 
             for (int j = x1; j <= x2; j++) {
-                map[j][y1] = 1;
-                map[j][y2] = 1;
+                if (map[j][y1] == 0) {
+                    map[j][y1] = 1;
+                }
+                if (map[j][y2] == 0) {
+                    map[j][y2] = 1;
+                }
             }
 
             for (int j = y1; j <= y2; j++) {
-                map[x1][j] = 1;
-                map[x2][j] = 1;
+                if (map[x1][j] == 0) {
+                    map[x1][j] = 1;
+                }
+                if (map[x2][j] == 0) {
+                    map[x2][j] = 1;
+                }
+            }
+
+            // 직사각형 내부 -1로 표시
+            for (int j = x1 + 1; j < x2; j++) {
+                for (int k = y1 + 1; k < y2; k++) {
+                    map[j][k] = -1;
+                }
             }
         }
 
