@@ -31,6 +31,9 @@ public class Main {
         // 시작 시간 같은 것 제외(끝나는 시간이 가장 빠른 것만을 포함)
         for (int i = 1; i < N; i++) {
             if (schedule[i][0] == schedule[i - 1][0]) {
+                if (schedule[i][1] == schedule[i - 1][1]) { // 시작시간과 끝시간이 같은 경우 여러 회의 선택 가능..?
+                    cnt++;
+                }
                 continue;
             }
             else if (schedule[i][0] >= prevEndTime) {
