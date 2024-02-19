@@ -5,17 +5,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt(); // 아이들의 수
         int M = sc.nextInt(); // 색상의 수
-        int[] colors = new int[N];
+        int[] colors = new int[M];
 
         for (int i = 0; i < M; i++) {
             colors[i] = sc.nextInt();
         }
 
+        Arrays.sort(colors); // 오름차순 정렬
+
         int left = 1;
-        int right = 0;
-        for (int i = 0; i < M; i++) { // right는 보석 중 개수가 가장 많은 것으로 초기화
-            right = Math.max(right, colors[i]);
-        }
+        int right = colors[M - 1]; // 가장 큰 값
         int result = 0;
 
         while (left <= right) {
