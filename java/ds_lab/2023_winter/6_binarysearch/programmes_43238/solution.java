@@ -1,13 +1,20 @@
 import java.util.*;
 
 class Solution {
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        int n = 7;
+        int[] times = { 10, 10 };
+        System.out.println(s.solution(n, times));
+    }
+
     public long solution(int n, int[] times) {
         long answer = 0;
 
         Arrays.sort(times);
 
         long left = 1;
-        long right = times[times.length - 1] * n;
+        long right = (long) times[times.length - 1] * (long) n;
 
         while (left <= right) {
             long mid = (left + right) / 2;
