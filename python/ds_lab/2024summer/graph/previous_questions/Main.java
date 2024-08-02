@@ -25,17 +25,26 @@ class Solution {
 
         uniqueSourceNodes.removeAll(uniqueTargetNodes);
 
+        // 가장 많은 나가는 간선을 가진 uniqueSourceNodes 내의 노드를 선정
+        int max = 0;
+        int maxNode = 0;
         for (int exceptedNode : uniqueSourceNodes) {
-            int[] visited = new int[uniqueNodes.size() + 1];
-            visited[exceptedNode] = -1;
-            answer[0] = exceptedNode;
-
-            for (int i : edgeIndexs.get(exceptedNode)) {
-                int flag = dfs(edgeIndexs, visited, i, uniqueNodes.size());
-                answer[flag]++;
+            if (edgeIndexs.get(exceptedNode).size() > max) {
+                max = edgeIndexs.get(exceptedNode).size();
+                maxNode = exceptedNode;
             }
-            break;
         }
+
+        // for (int exceptedNode : uniqueSourceNodes) {
+        int[] visited = new int[uniqueNodes.size() + 1];
+        visited[maxNode] = -1;
+        answer[0] = maxNode;
+
+        for (int i : edgeIndexs.get(maxNode)) {
+            int flag = dfs(edgeIndexs, visited, i, uniqueNodes.size());
+            answer[flag]++;
+        }
+        // }
 
         return answer;
     }
