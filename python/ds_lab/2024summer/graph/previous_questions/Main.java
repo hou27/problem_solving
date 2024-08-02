@@ -5,7 +5,9 @@ class Solution {
         int[] answer = { 0, 0, 0, 0 };
         Set<Integer> uniqueSourceNodes = new HashSet<>();
         Set<Integer> uniqueTargetNodes = new HashSet<>();
-        List<List<Integer>> edgeIndexs = new ArrayList<>();
+        // List<List<Integer>> edgeIndexs = new ArrayList<>();
+        // edgeIndexs를 map으로 선언
+        Map<Integer, List<Integer>> edgeIndexs = new HashMap<>();
 
         for (int[] edge : edges) {
             uniqueSourceNodes.add(edge[0]);
@@ -15,11 +17,17 @@ class Solution {
         uniqueNodes.addAll(uniqueSourceNodes);
         uniqueNodes.addAll(uniqueTargetNodes);
 
-        for (int i = 0; i < uniqueNodes.size() + 1; i++) {
-            edgeIndexs.add(new ArrayList<Integer>());
-        }
+        // for (int i = 0; i < uniqueNodes.size() + 1; i++) {
+        // edgeIndexs.add(new ArrayList<Integer>());
+        // }
 
+        // for (int[] edge : edges) {
+        // edgeIndexs.get(edge[0]).add(edge[1]);
+        // }
         for (int[] edge : edges) {
+            if (edgeIndexs.get(edge[0]) == null) {
+                edgeIndexs.put(edge[0], new ArrayList<>());
+            }
             edgeIndexs.get(edge[0]).add(edge[1]);
         }
 
@@ -35,35 +43,43 @@ class Solution {
             }
         }
 
-        // for (int exceptedNode : uniqueSourceNodes) {
-        int[] visited = new int[uniqueNodes.size() + 1];
-        visited[maxNode] = -1;
+        // int[] visited = new int[uniqueNodes.size() + 1];
+        // visited를 map으로 선언
+        Map<Integer, Integer> visited = new HashMap<>();
         answer[0] = maxNode;
 
         for (int i : edgeIndexs.get(maxNode)) {
             int flag = dfs(edgeIndexs, visited, i, uniqueNodes.size());
             answer[flag]++;
         }
-        // }
 
         return answer;
     }
 
-    public static int dfs(List<List<Integer>> edgeIndexs, int[] visited, int node, int nodeCnt) {
+    public static int dfs(Map<Integer, List<Integer>> edgeIndexs, Map<Integer, Integer> visited, int node,
+            int nodeCnt) {
         Stack<Integer> stack = new Stack<>();
         stack.push(node);
         int flag = 2; // donut, stick, 8
 
         while (!stack.isEmpty()) {
             int current = stack.pop();
-            if (visited[current] == 0) {
-                visited[current] = 1;
+            // if (visited[current] == 0) {
+            if (visited.get(current) == null) {
+                // visited[current] = 1;
+                visited.put(current, 1);
+                if (edgeIndexs.get(current) == null) {
+                    flag = 2;
+                    continue;
+                }
                 for (int neighbor : edgeIndexs.get(current)) {
-                    if (visited[neighbor] == 1) {
+                    // if (visited[neighbor] == 1) {
+                    if (visited.get(neighbor) != null) {
                         if (flag != 3) {
                             flag = 1; // 갔던 곳을 다시 또 가는 경우는 도넛 또는 8자 그래프
                         }
-                    } else if (visited[neighbor] == 0) {
+                        // } else if (visited[neighbor] == 0) {
+                    } else {
                         stack.push(neighbor);
                     }
                 }
@@ -93,7 +109,7 @@ public class Main {
         System.out.println("]");
 
         // [[2, 3], [4, 3], [1, 1], [2, 1]]
-        int[][] edges2 = { { 2, 3 }, { 4, 3 }, { 1, 1 }, { 2, 1 } };
+        int[][] edges2 = { { 2, 7 }, { 4, 7 }, { 1, 1 }, { 2, 1 } };
         int[] answer2 = solution.solution(edges2);
         System.out.print("[");
         for (int n : answer2) {
