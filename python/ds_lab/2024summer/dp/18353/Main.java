@@ -24,7 +24,7 @@ public class Main {
             }
         }
 
-        System.out.println(min);
+        System.out.println(min == N ? N - 1 : min);
     }
 
 }
