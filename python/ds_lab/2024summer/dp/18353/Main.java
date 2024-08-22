@@ -16,7 +16,7 @@ public class Main {
 
         for (int i = 1; i <= N; i++) {
             dp[i] = N - 1;
-            for (int j = 1; j < i; j++) {
+            for (int j = 1; j < i; j++) { // 기준 병사로부터 왼쪽을 탐색
                 if (soldiers[i] < soldiers[j]) {
                     dp[i] = Math.min(dp[i], dp[j] - 1);
                     min = Math.min(min, dp[i]);
