@@ -11,8 +11,6 @@ public class Main {
     }
 
     public static int backtracking(int N, int idx) {
-
-        // System.out.println("idx: " + idx);
         int cnt = 0;
         Stack<ArrayList<Integer>> stack = new Stack<>();
         for (int i = N - 1; i >= 0; i--) {
@@ -40,46 +38,21 @@ public class Main {
     }
 
     public static boolean isPossible(int N, ArrayList<Integer> queens) {
-        int[][] board = new int[N][N];
-        for (int i = 0; i < queens.size(); i++) {
-            board[i][queens.get(i)] = 1;
-        }
+        int size = queens.size();
+        int x = size - 1;
+        int y = queens.get(size - 1);
 
-        int x = queens.size() - 1;
-        int y = queens.get(x);
+        for (int i = 0; i < size - 1; i++) {
+            int otherX = i;
+            int otherY = queens.get(i);
 
-        for (int i = 0; i < board.length; i++) {
-            if (i != x && board[i][y] == 1) {
+            // 같은 열 체크
+            if (otherY == y) {
                 return false;
             }
-        }
 
-        for (int i = 0; i < board.length; i++) {
-            if (i != y && board[x][i] == 1) {
-                return false;
-            }
-        }
-
-        for (int i = 1; x - i >= 0 && y - i >= 0; i++) {
-            if (board[x - i][y - i] == 1) {
-                return false;
-            }
-        }
-
-        for (int i = 1; x + i < board.length && y + i < board.length; i++) {
-            if (board[x + i][y + i] == 1) {
-                return false;
-            }
-        }
-
-        for (int i = 1; x - i >= 0 && y + i < board.length; i++) {
-            if (board[x - i][y + i] == 1) {
-                return false;
-            }
-        }
-
-        for (int i = 1; x + i < board.length && y - i >= 0; i++) {
-            if (board[x + i][y - i] == 1) {
+            // 대각선 체크
+            if (Math.abs(otherX - x) == Math.abs(otherY - y)) {
                 return false;
             }
         }
