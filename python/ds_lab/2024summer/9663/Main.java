@@ -7,27 +7,29 @@ public class Main {
 
         sc.close();
 
-        System.out.println(backtracking(N, N));
+        System.out.println(backtracking(N));
     }
 
-    public static int backtracking(int N, int idx) {
+    public static int backtracking(int N) {
         int cnt = 0;
-        Stack<ArrayList<Integer>> stack = new Stack<>();
+        Stack<int[]> stack = new Stack<>();
         for (int i = N - 1; i >= 0; i--) {
-            stack.push(new ArrayList<>(Arrays.asList(i)));
+            int[] initial = new int[1];
+            initial[0] = i;
+            stack.push(initial);
         }
 
         while (!stack.isEmpty()) {
-            ArrayList<Integer> curr = stack.pop();
+            int[] curr = stack.pop();
 
             if (isPossible(N, curr)) {
-                if (curr.size() == N) {
+                if (curr.length == N) {
                     cnt++;
                     continue;
                 } else {
                     for (int i = N - 1; i >= 0; i--) {
-                        ArrayList<Integer> next = new ArrayList<>(curr);
-                        next.add(i);
+                        int[] next = Arrays.copyOf(curr, curr.length + 1);
+                        next[curr.length] = i;
                         stack.push(next);
                     }
                 }
@@ -37,14 +39,14 @@ public class Main {
         return cnt;
     }
 
-    public static boolean isPossible(int N, ArrayList<Integer> queens) {
-        int size = queens.size();
+    public static boolean isPossible(int N, int[] queens) {
+        int size = queens.length;
         int x = size - 1;
-        int y = queens.get(size - 1);
+        int y = queens[size - 1];
 
         for (int i = 0; i < size - 1; i++) {
             int otherX = i;
-            int otherY = queens.get(i);
+            int otherY = queens[i];
 
             // 같은 열 체크
             if (otherY == y) {
