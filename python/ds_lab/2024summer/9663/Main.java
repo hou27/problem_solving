@@ -12,49 +12,51 @@ public class Main {
 
     public static int backtracking(int N) {
         int cnt = 0;
-        Stack<int[]> stack = new Stack<>();
-        for (int i = N - 1; i >= 0; i--) {
-            int[] initial = new int[1];
-            initial[0] = i;
-            stack.push(initial);
-        }
+        int[] queens = new int[N];
+        int row = 0;
+        queens[0] = -1;
 
-        while (!stack.isEmpty()) {
-            int[] curr = stack.pop();
+        while (row > -1) {
+            queens[row]++;
 
-            if (isPossible(N, curr)) {
-                if (curr.length == N) {
-                    cnt++;
-                    continue;
-                } else {
-                    for (int i = N - 1; i >= 0; i--) {
-                        int[] next = Arrays.copyOf(curr, curr.length + 1);
-                        next[curr.length] = i;
-                        stack.push(next);
-                    }
+            // 가능한 자리에 퀸을 놓음
+            for (;;) { // 가능한 자리를 찾을 때까지 반복
+                if (queens[row] == N) {
+                    break;
                 }
+
+                if (isPossible(queens, row)) {
+                    break;
+                }
+
+                queens[row]++;
+            }
+
+            if (queens[row] == N) { // 놓을 수 있는 자리가 없으면 이전 행으로
+                row--;
+            } else if (row == N - 1) { // 마지막 행까지 놓을 수 있으면 카운트 증가
+                cnt++;
+            } else { // 다음 행으로
+                row++;
+                queens[row] = -1;
             }
         }
 
         return cnt;
     }
 
-    public static boolean isPossible(int N, int[] queens) {
-        int size = queens.length;
-        int x = size - 1;
-        int y = queens[size - 1];
-
-        for (int i = 0; i < size - 1; i++) {
+    public static boolean isPossible(int[] queens, int row) {
+        for (int i = 0; i < row; i++) {
             int otherX = i;
             int otherY = queens[i];
 
             // 같은 열 체크
-            if (otherY == y) {
+            if (otherY == queens[row]) {
                 return false;
             }
 
             // 대각선 체크
-            if (Math.abs(otherX - x) == Math.abs(otherY - y)) {
+            if (Math.abs(otherX - row) == Math.abs(otherY - queens[row])) {
                 return false;
             }
         }
