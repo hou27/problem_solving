@@ -7,74 +7,47 @@ public class Main {
 
         sc.close();
 
-        int[][] board = new int[N][N];
-
-        int cnt = 0;
-        for (int i = 0; i < N; i++) {
-            cnt += backtracking(board, i);
-            System.out.println("chk cnt: " + cnt);
-        }
-
-        System.out.println(cnt);
+        System.out.println(backtracking(N, N));
     }
 
-    public static int backtracking(int[][] board, int idx) {
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board.length; j++) {
-                board[i][j] = 0;
-            }
-        }
+    public static int backtracking(int N, int idx) {
 
         // System.out.println("idx: " + idx);
         int cnt = 0;
-        Stack<int[]> stack = new Stack<>();
-        stack.push(new int[] { 0, idx });
-        int step = 0;
+        Stack<ArrayList<Integer>> stack = new Stack<>();
+        for (int i = N - 1; i >= 0; i--) {
+            stack.push(new ArrayList<>(Arrays.asList(i)));
+        }
 
         while (!stack.isEmpty()) {
-            int[] curr = stack.pop();
-            int x = curr[0];
-            int y = curr[1];
+            ArrayList<Integer> curr = stack.pop();
 
-            if (x < step) {
-                step--;
-                for (int i = 0; i < board.length; i++) {
-                    board[step][i] = 0;
-                }
-            }
-
-            if (isPossible(board, x, y)) {
-                board[x][y] = 1;
-                step++;
-
-                if (step == board.length && x == board.length - 1) {
+            if (isPossible(N, curr)) {
+                if (curr.size() == N) {
                     cnt++;
-                    step--;
-                    for (int i = 0; i < board.length; i++) {
-                        board[step][i] = 0;
-                    }
+                    continue;
                 } else {
-                    for (int i = 0; i < board.length; i++) {
-                        stack.push(new int[] { x + 1, i });
+                    for (int i = N - 1; i >= 0; i--) {
+                        ArrayList<Integer> next = new ArrayList<>(curr);
+                        next.add(i);
+                        stack.push(next);
                     }
                 }
             }
-
-            System.out.println("step: " + step);
-            // print board
-            for (int i = 0; i < board.length; i++) {
-                for (int j = 0; j < board.length; j++) {
-                    System.out.print(board[i][j] + " ");
-                }
-                System.out.println();
-            }
-            System.out.println();
         }
 
         return cnt;
     }
 
-    public static boolean isPossible(int[][] board, int x, int y) {
+    public static boolean isPossible(int N, ArrayList<Integer> queens) {
+        int[][] board = new int[N][N];
+        for (int i = 0; i < queens.size(); i++) {
+            board[i][queens.get(i)] = 1;
+        }
+
+        int x = queens.size() - 1;
+        int y = queens.get(x);
+
         for (int i = 0; i < board.length; i++) {
             if (i != x && board[i][y] == 1) {
                 return false;
