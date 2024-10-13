@@ -16,7 +16,7 @@ public class Main {
     public static int bfs(int start, int dest) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[] { start, 0 });
-        boolean[] visited = new boolean[100000];
+        boolean[] visited = new boolean[100001];
         int[] d = { -1, +1 };
         int answer = 0;
 
@@ -42,7 +42,7 @@ public class Main {
                     nloc = loc + d[i];
                 }
 
-                if (nloc >= 100000 || nloc <= 0 || visited[nloc]) {
+                if (nloc > 100000 || nloc < 0 || visited[nloc]) {
                     continue;
                 }
                 queue.add(new int[] { nloc, step + 1 });
