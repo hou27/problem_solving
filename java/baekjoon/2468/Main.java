@@ -23,15 +23,16 @@ public class Main {
         List<Integer> heightList = new ArrayList<>(heightSet);
         Collections.sort(heightList, Collections.reverseOrder());
 
-        int max = 0;
-        for (int i = 0; i < heightList.size(); i++) {
+        int max = 1;
+        for (int i = 1; i < heightList.size(); i++) {
             int cnt = bfs(heightList.get(i), N, grid);
 
             if (max < cnt) {
                 max = cnt;
-            } else if (max > cnt) {
-                break;
             }
+            // else if (max > cnt) {
+            // break;
+            // }
         }
 
         System.out.println(max);
