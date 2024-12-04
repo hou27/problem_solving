@@ -24,26 +24,24 @@ public class Main {
             return;
         }
 
-        int[][] dp = new int[len][len];
+        int[] dp = new int[len];
         for (int i = 0; i < len; i++) {
-            dp[0][i] = nums[i];
+            dp[i] = nums[i];
         }
 
         int max = nums[0];
         for (int i = 1; i < len; i++) {
-            for (int j = i; j < len; j++) {
-                dp[i][j] = Math.max(dp[i - 1][j - 1] + nums[j], dp[i - 1][j]);
-                if (max < dp[i][j])
-                    max = dp[i][j];
-            }
+            dp[i] = Math.max(dp[i - 1] + dp[i], dp[i]);
+            // for (int j = i; j < len; j++) {
+            // dp[i][j] = Math.max(dp[i - 1][j - 1] + nums[j], dp[i - 1][j]);
+            if (max < dp[i])
+                max = dp[i];
         }
 
         for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len; j++) {
-                System.out.print(dp[i][j] + " ");
-            }
-            System.out.println();
+            System.out.print(dp[i] + " ");
         }
+        System.out.println();
 
         System.out.println(max);
         // e.g. 5, 4, -1, 7, 8
@@ -53,6 +51,9 @@ public class Main {
         // 2 - - 8 10 15
         // 3 - - - 15 18
         // 4 - - - - 23
+        // - 5 4 -1 7 8
+        // - 5 9 -1 7 8
+        // - 5 9 8 15 23
         /**
          * -2 1 -3 4 -1 2 1 -5 4
          * 0 1 -2 4 3 2 3 -4 4
@@ -63,6 +64,8 @@ public class Main {
          * 0 0 0 0 0 0 6 1 5
          * 0 0 0 0 0 0 0 1 5
          * 0 0 0 0 0 0 0 0 5
+         * 
+         * -2 1 -2
          * 
          * -2 1 -3 4 -1 2 1 -5 4
          * 0 1 1 4 4 2 3 1 4
@@ -86,18 +89,18 @@ class Solution {
             return nums[0];
         }
 
-        int[][] dp = new int[len][len];
+        int[] dp = new int[len];
         for (int i = 0; i < len; i++) {
-            dp[0][i] = nums[i];
+            dp[i] = nums[i];
         }
 
         int max = nums[0];
         for (int i = 1; i < len; i++) {
-            for (int j = i; j < len; j++) {
-                dp[i][j] = Math.max(dp[i - 1][j - 1] + nums[j], dp[i - 1][j]);
-                if (max < dp[i][j])
-                    max = dp[i][j];
-            }
+            dp[i] = Math.max(dp[i - 1] + dp[i], dp[i]);
+            // for (int j = i; j < len; j++) {
+            // dp[i][j] = Math.max(dp[i - 1][j - 1] + nums[j], dp[i - 1][j]);
+            if (max < dp[i])
+                max = dp[i];
         }
 
         return max;
