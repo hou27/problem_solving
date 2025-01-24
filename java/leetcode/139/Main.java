@@ -19,6 +19,7 @@ class Solution {
         ArrayList<Integer> idxList = new ArrayList<>();
         idxList.add(0);
         stack.push(idxList);
+        Set<String> wordSet = new HashSet<>(wordDict);
 
         while (!stack.isEmpty()) {
             List<Integer> curr = stack.pop();
@@ -29,19 +30,14 @@ class Solution {
             if (lastIndex == s.length()) {
                 return true;
             }
-            for (String w : wordDict) {
-                int len = w.length();
-                if (lastIndex + len > s.length()) {
-                    continue;
-                }
-                String currStr = lastIndex + len == s.length()
+
+            for (int i = lastIndex + 1; i <= s.length(); i++) {
+                String currStr = i == s.length()
                         ? s.substring(lastIndex)
-                        : s.substring(lastIndex, lastIndex + len);
-                System.out.println("currStr : " + currStr);
-                System.out.println("w : " + w);
-                if (currStr.equals(w)) {
+                        : s.substring(lastIndex, i);
+                if (wordSet.contains(currStr)) {
                     List<Integer> newList = new ArrayList<>(curr);
-                    newList.add(lastIndex + len);
+                    newList.add(i);
                     stack.push(newList);
                 }
             }
