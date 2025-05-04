@@ -7,7 +7,7 @@ class Solution {
 
         Case(int discountRate, int price) {
             this.discountRate = discountRate;
-            this.price = (int) (price * ((100 - discountRate) / 100.0));
+            this.price = price * (100 - discountRate) / 100;
         }
     }
 
