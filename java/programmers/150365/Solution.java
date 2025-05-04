@@ -14,27 +14,17 @@ class PathRecord {
 
 class Solution {
     public String solution(int n, int m, int x, int y, int r, int c, int k) {
-        String answer = "";
         int[][] map = new int[n][m];
 
-        List<String> candidates = bfs(map, n, m, x - 1, y - 1, r - 1, c - 1, k);
-
-        if (candidates.size() == 0) {
-            return "impossible";
-        }
-        candidates.sort(null);
-        answer = candidates.get(0);
-
-        return answer;
+        return bfs(map, n, m, x - 1, y - 1, r - 1, c - 1, k);
     }
 
-    // bfs로 k hop 경로 전부 탐색 -> 마지막 위치가 목적지인 것 중 사전 순으로 가장 빠른 것 리턴
-    static List<String> bfs(int[][] map, int n, int m, int x, int y, int r, int c, int k) {
+    // bfs로 k hop 경로 사전순으로 탐색 -> 마지막 위치가 목적지인 것 중 사전 순으로 가장 빠른 것 리턴
+    static String bfs(int[][] map, int n, int m, int x, int y, int r, int c, int k) {
         Queue<PathRecord> queue = new LinkedList<>();
-        int[] dx = { 1, -1, 0, 0 };
-        int[] dy = { 0, 0, 1, -1 };
-        char[] direction = { 'd', 'u', 'r', 'l' };
-        List<String> candidates = new ArrayList<>();
+        int[] dx = { 1, 0, 0, -1 };
+        int[] dy = { 0, -1, 1, 0 };
+        char[] direction = { 'd', 'l', 'r', 'u' };
         queue.add(new PathRecord(x, y, ""));
 
         while (!queue.isEmpty()) {
@@ -45,7 +35,8 @@ class Solution {
 
             if (history.length() == k) {
                 if (posX == r && posY == c) {
-                    candidates.add(history);
+                    // candidates.add(history);
+                    return history;
                 }
                 continue;
             }
@@ -58,10 +49,14 @@ class Solution {
                 if (nx < 0 || nx >= n || ny < 0 || ny >= m) {
                     continue;
                 }
+                if (Math.abs(nx - r) + Math.abs(ny - c) > k - 1 - history.length()) {
+                    continue;
+                }
                 queue.add(new PathRecord(nx, ny, nHistory));
+                break;
             }
         }
 
-        return candidates;
+        return "impossible";
     }
 }
