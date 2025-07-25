@@ -7,22 +7,15 @@ public class Main {
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
         int[] output = new int[temperatures.length];
-        List<int[]> tmp = new ArrayList<>();
-        tmp.add(new int[] { temperatures[0], 0 });
+        Stack<Integer> stack = new Stack<>();
 
-        for (int i = 1; i < temperatures.length; i++) {
-
-            int idx = 0;
-            while (idx < tmp.size()) {
-                if (temperatures[i] > tmp.get(idx)[0]) {
-                    output[tmp.get(idx)[1]] = i - tmp.get(idx)[1];
-                    tmp.remove(idx);
-                } else {
-                    idx++;
-                }
+        for (int i = 0; i < temperatures.length; i++) {
+            while (!stack.isEmpty()
+                    && temperatures[i] > temperatures[stack.peek()]) {
+                int prevIdx = stack.pop();
+                output[prevIdx] = i - prevIdx;
             }
-
-            tmp.add(new int[] { temperatures[i], i });
+            stack.push(i);
         }
 
         return output;
