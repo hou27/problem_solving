@@ -26,28 +26,30 @@ class Solution {
         int time = 0;
 
         while (!queue.isEmpty()) {
-            int[] curr = queue.poll();
-            int x = curr[0];
-            int y = curr[1];
-
-            if (visited[x][y])
-                continue;
-            visited[x][y] = true;
-
+            int currSize = queue.size();
             boolean flag = false;
+            for (int idx = 0; idx < currSize; idx++) {
+                int[] curr = queue.poll();
+                int x = curr[0];
+                int y = curr[1];
 
-            for (int i = 0; i < 4; i++) {
-                int nx = x + dx[i];
-                int ny = y + dy[i];
+                if (visited[x][y])
+                    continue;
+                visited[x][y] = true;
 
-                if (nx >= grid.length || nx < 0 || ny >= grid[0].length || ny < 0)
-                    continue;
-                if (grid[nx][ny] == 2 || grid[nx][ny] == 0)
-                    continue;
-                if (grid[nx][ny] == 1) {
-                    grid[nx][ny] = 2;
-                    queue.add(new int[] { nx, ny });
-                    flag = true;
+                for (int i = 0; i < 4; i++) {
+                    int nx = x + dx[i];
+                    int ny = y + dy[i];
+
+                    if (nx >= grid.length || nx < 0 || ny >= grid[0].length || ny < 0)
+                        continue;
+                    if (grid[nx][ny] == 2 || grid[nx][ny] == 0)
+                        continue;
+                    if (grid[nx][ny] == 1) {
+                        grid[nx][ny] = 2;
+                        queue.add(new int[] { nx, ny });
+                        flag = true;
+                    }
                 }
             }
             if (flag)
