@@ -12,6 +12,7 @@ class TimeMap {
             map.put(key, new ArrayList<>());
         }
         map.get(key).add(new Data(timestamp, value));
+        Collections.sort(map.get(key), (a, b) -> Integer.compare(a.timestamp, b.timestamp));
     }
 
     public String get(String key, int timestamp) {
@@ -22,11 +23,16 @@ class TimeMap {
         List<Data> datas = map.get(key);
         String result = "";
 
-        int maxTimestamp = Integer.MIN_VALUE;
-        for (Data data : datas) {
-            if (data.timestamp <= timestamp && data.timestamp > maxTimestamp) {
-                maxTimestamp = data.timestamp;
-                result = data.value;
+        int left = 0;
+        int right = datas.size() - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (datas.get(mid).timestamp <= timestamp) {
+                result = datas.get(mid).value;
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
         }
 
