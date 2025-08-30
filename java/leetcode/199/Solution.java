@@ -30,7 +30,7 @@ public class Solution {
 
     static void dfs(TreeNode node, List<Integer> result) {
         Stack<Map<TreeNode, Integer>> stack = new Stack<>();
-        List<Integer> visited = new ArrayList<>();
+        // List<Integer> visited = new ArrayList<>();
         Map<TreeNode, Integer> map = new HashMap<>();
         map.put(node, 1);
         stack.push(map);
@@ -47,10 +47,10 @@ public class Solution {
             TreeNode currNode = curr.getKey();
             int depth = curr.getValue();
 
-            if (visited.contains(currNode.val)) {
-                continue;
-            }
-            visited.add(currNode.val);
+            // if (visited.contains(currNode.val)) {
+            // continue;
+            // }
+            // visited.add(currNode.val);
 
             if (cnt < depth) {
                 result.add(currNode.val);
