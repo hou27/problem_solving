@@ -2,10 +2,6 @@
 
 <span style="color:orange">Medium<span>
 
-아래와 같이 작성할 수 있습니다:
-
----
-
 Implement `myAtoi(string s)` function `myAtoi(string s)` that converts a string into a 32-bit signed integer.  
 
 ## Algorithm
