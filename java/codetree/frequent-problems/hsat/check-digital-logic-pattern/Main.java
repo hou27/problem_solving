@@ -1,33 +1,33 @@
 import java.util.*;
-// import java.io.BufferedReader;
-// import java.io.IOException;
-// import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) { // throws IOException {
         Scanner sc = new Scanner(System.in);
-        // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        // String S = br.readLine();
-        // String[] input = br.readLine().split(" ");
-        // int K = Integer.parseInt(input[0]);
-        // int M = Integer.parseInt(input[1]);
         String S = sc.next();
         int K = sc.nextInt();
         int M = sc.nextInt();
         sc.close();
         // Please write your code here.
 
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<Long, Integer> map = new HashMap<>();
 
-        String pattern = S.substring(0, K);
-
+        // String pattern = S.substring(0, K);
+        long pattern = 0;
+        for (int i = 0; i < K; i++) {
+            pattern = (pattern << 1) | (S.charAt(i) - '0');
+        }
         map.put(pattern, 1);
 
+        // System.out.println(Long.toBinaryString(~(1 << 3)));
+
         for (int i = K; i < S.length(); i++) {
-            pattern = pattern.substring(1) + S.charAt(i);
-            System.out.println("pattern.substring(1): " + pattern.substring(1) + ", S.charAt(i): " + S.charAt(i));
+            long mask = ~(1 << K); // 최상위 비트 버리기용
+            // System.out.println("pattern: " + Long.toBinaryString(pattern));
+            // System.out.println("mask: " + Long.toBinaryString(mask));
+            pattern = (pattern << 1) & mask | (S.charAt(i) - '0');
             int cnt = map.getOrDefault(pattern, -1);
-            System.out.println("pattern: " + pattern + ", cnt: " + cnt);
+            // System.out.println("pattern: " + Long.toBinaryString(pattern) + ", cnt: " +
+            // cnt);
             if (cnt == M - 1) {
                 System.out.println(1);
                 return;
@@ -36,9 +36,6 @@ public class Main {
             } else {
                 map.put(pattern, 1);
             }
-        }
-        for (Map.Entry<String, Integer> m : map.entrySet()) {
-            System.out.println(m.getKey() + ", " + m.getValue());
         }
 
         System.out.println(0);
