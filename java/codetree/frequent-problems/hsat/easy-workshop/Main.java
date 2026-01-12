@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,13 +32,15 @@ public class Main {
         queue.offer(new int[] { x, y, 1, 0 }); // x, y, path length, max difference
         int[] dx = { 0, 0, -1, 1 };
         int[] dy = { -1, 1, 0, 0 };
-        int[][][] visited = new int[n][n][k + 1];
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                Arrays.fill(visited[i][j], Integer.MAX_VALUE);
-            }
-        }
-        visited[x][y][1] = 0;
+        // int[][][] visited = new int[n][n][k + 1];
+        HashMap<String, Integer> visited = new HashMap<>();
+        // for (int i = 0; i < n; i++) {
+        // for (int j = 0; j < n; j++) {
+        // Arrays.fill(visited[i][j], Integer.MAX_VALUE);
+        // }
+        // }
+        visited.put(x + ":" + y + ":" + 1, 0);
+        // visited[x][y][1] = 0;
         int result = -1;
 
         while (!queue.isEmpty()) {
@@ -51,7 +50,9 @@ public class Main {
             int currLen = curr[2];
             int currDiff = curr[3];
 
-            if (currDiff > visited[currX][currY][currLen]) {
+            // if (currDiff > visited[currX][currY][currLen]) {
+            String currKey = currX + ":" + currY + ":" + currLen;
+            if (currDiff > visited.get(currKey)) {
                 continue;
             }
 
@@ -73,19 +74,21 @@ public class Main {
                 // System.out.println("difference: " + difference);
 
                 int nDiff = currDiff < difference ? difference : currDiff;
-                if (nDiff >= visited[nx][ny][currLen + 1]) {
-                    continue;
-                }
+                int nLen = currLen + 1;
 
-                if (currLen + 1 == k) {
+                if (nLen == k) {
                     if (result == -1 || result > nDiff) {
                         // System.out.println("update diff: " + nDiff);
                         result = nDiff;
                     }
                     continue;
                 }
-                visited[nx][ny][currLen + 1] = nDiff;
-                queue.offer(new int[] { nx, ny, currLen + 1, nDiff });
+
+                String nKey = nx + ":" + ny + ":" + String.valueOf(nLen);
+                if (nDiff < visited.getOrDefault(nKey, Integer.MAX_VALUE)) {
+                    visited.put(nKey, nDiff);
+                    queue.offer(new int[] { nx, ny, nLen, nDiff });
+                }
             }
         }
 
