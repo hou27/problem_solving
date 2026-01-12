@@ -1,20 +1,39 @@
 import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int k = sc.nextInt();
+    static int[][][] visited;
+
+    public static void main(String[] args) throws IOException {
+        // Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String[] input = br.readLine().split(" ");
+        int n = Integer.parseInt(input[0]);
+        int k = Integer.parseInt(input[1]);
         int[][] grid = new int[n][n];
-        for (int i = 0; i < n; i++)
-            for (int j = 0; j < n; j++)
-                grid[i][j] = sc.nextInt();
-        sc.close();
+        for (int i = 0; i < n; i++) {
+            input = br.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                grid[i][j] = Integer.parseInt(input[j]);
+            }
+        }
+        // for (int j = 0; j < n; j++)
+        // grid[i][j] = sc.nextInt();
+        // sc.close();
         // Please write your code here.
 
+        visited = new int[n][n][k + 1];
+        for (int x = 0; x < n; x++) {
+            for (int y = 0; y < n; y++) {
+                Arrays.fill(visited[x][y], Integer.MAX_VALUE);
+            }
+        }
         int result = -1;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+                visited[i][j][1] = 0;
                 int maxDiff = bfs(grid, n, i, j, k);
                 // System.out.println("i: " + i + ", j: " + j + ", grid[i][j]: " + grid[i][j] +
                 // ", maxDiff: " + maxDiff);
@@ -33,15 +52,16 @@ public class Main {
         int[] dx = { 0, 0, -1, 1 };
         int[] dy = { -1, 1, 0, 0 };
         // int[][][] visited = new int[n][n][k + 1];
-        HashMap<String, Integer> visited = new HashMap<>();
+        // HashMap<String, Integer> visited = new HashMap<>();
         // for (int i = 0; i < n; i++) {
         // for (int j = 0; j < n; j++) {
         // Arrays.fill(visited[i][j], Integer.MAX_VALUE);
         // }
         // }
-        visited.put(x + ":" + y + ":" + 1, 0);
+        // visited.put(x + ":" + y + ":" + 1, 0);
         // visited[x][y][1] = 0;
         int result = -1;
+        List<int[]> visitedOnThisStep = new LinkedList<>();
 
         while (!queue.isEmpty()) {
             int[] curr = queue.poll();
@@ -50,9 +70,9 @@ public class Main {
             int currLen = curr[2];
             int currDiff = curr[3];
 
-            // if (currDiff > visited[currX][currY][currLen]) {
-            String currKey = currX + ":" + currY + ":" + currLen;
-            if (currDiff > visited.get(currKey)) {
+            if (currDiff > visited[currX][currY][currLen]) {
+                // String currKey = currX + ":" + currY + ":" + currLen;
+                // if (currDiff > visited.get(currKey)) {
                 continue;
             }
 
@@ -84,12 +104,19 @@ public class Main {
                     continue;
                 }
 
-                String nKey = nx + ":" + ny + ":" + String.valueOf(nLen);
-                if (nDiff < visited.getOrDefault(nKey, Integer.MAX_VALUE)) {
-                    visited.put(nKey, nDiff);
+                // String nKey = nx + ":" + ny + ":" + String.valueOf(nLen);
+                // if (nDiff < visited.getOrDefault(nKey, Integer.MAX_VALUE)) {
+                // visited.put(nKey, nDiff);
+                if (nDiff < visited[nx][ny][nLen]) {
+                    visited[nx][ny][nLen] = nDiff;
                     queue.offer(new int[] { nx, ny, nLen, nDiff });
+                    visitedOnThisStep.add(new int[] { nx, ny, nLen });
                 }
             }
+        }
+
+        for (int[] history : visitedOnThisStep) {
+            visited[history[0]][history[1]][history[2]] = Integer.MAX_VALUE;
         }
 
         return result;
