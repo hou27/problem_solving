@@ -15,34 +15,38 @@ public class Main {
             return;
         }
 
-        int[] acc = { 0, 0, 0 }; // (, ), ?
+        int min = 0;
+        int max = 0; // range of people allowed in the office
 
         for (int i = 0; i < N; i++) {
             switch (S.charAt(i)) {
                 case '(':
-                    acc[0]++;
+                    min++;
+                    max++;
                     break;
                 case ')':
-                    if (acc[0] - acc[1] >= 1) {
-                        acc[1]++;
-                    } else if (acc[2] > 0) {
-                        acc[0]++;
-                        acc[1]++;
-                        acc[2]--;
-                    } else {
-                        System.out.println("No");
-                        return;
-                    }
+                    min--;
+                    max--;
                     break;
                 case '?':
-                    acc[2]++;
+                    min--;
+                    max++;
                     break;
                 default:
                     break;
             }
+
+            if (max < 0) {
+                System.out.println("No");
+                return;
+            }
+
+            if (min < 0) {
+                min = 0;
+            }
         }
 
-        if (acc[0] <= N / 2) {
+        if (min == 0) {
             System.out.println("Yes");
         } else {
             System.out.println("No");
