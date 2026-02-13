@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
     static int n, m;
     static int[][] grid, targets;
-    static HashSet<Integer> cases = new HashSet<>();
+    static List<Integer> cases = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -32,19 +32,19 @@ public class Main {
     }
 
     private static void explore(int r, int c, int path, int step) {
-        System.out.println("r: " + r + ", c: " + c + ", grid[r][c]: " + grid[r][c]);
-        System.out.println("path: " + Integer.toBinaryString(path));
+        // System.out.println("r: " + r + ", c: " + c + ", grid[r][c]: " + grid[r][c]);
+        // System.out.println("path: " + Integer.toBinaryString(path));
         int[] dr = { 0, 0, -1, 1 };
         int[] dc = { -1, 1, 0, 0 };
 
-        System.out.println("currStep: " + step);
+        // System.out.println("currStep: " + step);
         int mask = 1 << (r * n + c);
         path = path | mask;
 
         if (grid[r][c] == -m) {
             cases.add(path);
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!added: " +
-                    cases.size());
+            // System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!added: " +
+            // cases.size());
 
             return;
         }
