@@ -2,20 +2,23 @@ import java.util.*;
 
 public class Main {
     static int n, m, S, T;
-    static List<List<Integer>> edges = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         m = sc.nextInt();
+        List<List<Integer>> edges = new ArrayList<>();
+        List<List<Integer>> reverseEdges = new ArrayList<>();
 
         for (int i = 0; i <= n; i++) {
             edges.add(new ArrayList<>());
+            reverseEdges.add(new ArrayList<>());
         }
         for (int i = 0; i < m; i++) {
             int x = sc.nextInt();
             int y = sc.nextInt();
             edges.get(x).add(y);
+            reverseEdges.get(y).add(x);
         }
         S = sc.nextInt();
         T = sc.nextInt();
@@ -24,16 +27,27 @@ public class Main {
         // Please write your code here.
 
         // 가는 길에 방문 가능한 모든 노드 적립
-        boolean[] sToT = getReachableSet(S, T);
+        boolean[] sToMid = getReachableSet(S, T, edges);
+        boolean[] midToT = getReachableSet(T, S, reverseEdges);
         for (int i = 0; i < n + 1; i++) {
-            System.out.print(i + ": " + sToT[i] + " ");
+            System.out.print(i + ": " + sToMid[i] + " ");
         }
+        System.out.println();
+        for (int i = 0; i < n + 1; i++) {
+            System.out.print(i + ": " + midToT[i] + " ");
+        }
+        System.out.println();
         System.out.println();
 
         // 오는 길에 방문 가능한 모든 노드 적립
-        boolean[] tToS = getReachableSet(T, S);
+        boolean[] tToMid = getReachableSet(T, S, edges);
+        boolean[] midToS = getReachableSet(S, T, reverseEdges);
         for (int i = 0; i < n + 1; i++) {
-            System.out.print(i + ": " + tToS[i] + " ");
+            System.out.print(i + ": " + tToMid[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < n + 1; i++) {
+            System.out.print(i + ": " + midToS[i] + " ");
         }
         System.out.println();
 
@@ -43,7 +57,7 @@ public class Main {
             if (v == S || v == T) {
                 continue;
             }
-            if (sToT[v] && tToS[v]) {
+            if (sToMid[v] && midToT[v] && tToMid[v] && midToS[v]) {
                 cnt++;
             }
         }
@@ -51,7 +65,7 @@ public class Main {
         System.out.println(cnt);
     }
 
-    private static boolean[] getReachableSet(int startVertex, int endVertex) {
+    private static boolean[] getReachableSet(int startVertex, int endVertex, List<List<Integer>> edges) {
         boolean[] visited = new boolean[n + 1];
         Deque<Integer> queue = new ArrayDeque<>();
         queue.add(startVertex);
